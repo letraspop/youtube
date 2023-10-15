@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Download YouTube to MP3</title>
+  <meta charset="UTF-8">
+  <title>Download YouTube to MP3</title>
 </head>
 <body>
-	<h1>Download YouTube to MP3</h1>
-	<p>Paste the ID of the YouTube video you want to download below:</p>
-	<input type="text" id="id">
-	<button onclick="download()">Download</button>
-
-	<script>
-		function download() {
-			var id = document.getElementById("id").value;
-			window.location.href = "https://www.convertmp3.io/download/?video=https://www.youtube.com/watch?v=" + id;
-		}
-	</script>
+  <h1>Download YouTube to MP3</h1>
+  <input type="text" id="id" placeholder="Enter YouTube video ID">
+  <button id="download">Download</button>
+  <script src="script.js"></script>
 </body>
 </html>
