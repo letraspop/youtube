@@ -1,43 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Download YouTube to MP3</title>
+	<title>Download YouTube to MP3</title>
 </head>
-
 <body>
-  <h1>Download YouTube to MP3</h1>
-  <input type="text" id="id" placeholder="Enter YouTube video ID">
-  <button id="download">Download</button>
-  <script>
-    function getVideoURL(id) {
-      return "https://www.youtube.com/watch?v=" + id;
-    }
+	<h1>Download YouTube to MP3</h1>
+	<p>Paste the ID of the YouTube video you want to download below:</p>
+	<input type="text" id="id">
+	<button onclick="download()">Download</button>
 
-    function downloadMP3(url) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url + "&t=0s&list=WL&index=1&fmt=18", true);
-      xhr.responseType = "arraybuffer";
-      xhr.onload = function () {
-        var mp3Data = new Uint8Array(xhr.response);
-        var blob = new Blob([mp3Data], {
-          type: "audio/mp3"
-        });
-        var downloadLink = document.createElement("a");
-        downloadLink.href = window.URL.createObjectURL(blob);
-        downloadLink.download = "video-" + id + ".mp3";
-        downloadLink.click();
-      };
-      xhr.send();
-    }
-
-    document.getElementById("download").addEventListener("click", function () {
-      var id = document.getElementById("id").value;
-      var url = getVideoURL(id);
-      downloadMP3(url);
-    });
-  </script>
+	<script>
+		function download() {
+			var id = document.getElementById("id").value;
+			window.location.href = "https://www.convertmp3.io/download/?video=https://www.youtube.com/watch?v=" + id;
+		}
+	</script>
 </body>
-
 </html>
